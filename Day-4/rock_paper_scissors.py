@@ -36,7 +36,10 @@ rand_ind = random.randint(0, len(choice_list)-1)
 
 machine_choice = choice_list[rand_ind]
 
-if user_input == 'rock' and machine_choice == scissors:
+if user_input not in ['rock','paper','scissors']:
+    print("You gave an invalid input. Please provide a valid one.")
+
+elif user_input == 'rock' and machine_choice == scissors:
     print(f"Your choice: {rock}")
     print(f"Machine choice: {scissors}")
     print("You win!")
