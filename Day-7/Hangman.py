@@ -69,7 +69,7 @@ display = ["_" for letter in chosen_word]
 end_of_game = False
 lives = len(stages)
 
-while not end_of_game and lives:
+while not end_of_game:
     guess = input("Guess a letter: ").lower()
     for i, letter in enumerate(chosen_word):
         if letter == guess:
@@ -77,14 +77,15 @@ while not end_of_game and lives:
     
     if guess not in chosen_word:
         print(stages[lives-1])
-        lives -= 1        
+        lives -= 1
+
+        if lives == 0:
+            end_of_game = True
+            print("You lost!")        
 
     if "_" not in display:
         end_of_game = True
         print("You won!")
-    
-    if lives == 0:
-        print("You lost!")
     
     print(display)
 
